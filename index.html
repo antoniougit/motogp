@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MotoGP 2019</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Moto_Gp_logo.svg/2000px-Moto_Gp_logo.svg.png" alt="motogp logo" class="float-right img-fluid" style="width:20%">
+            <h1 class="display-4">MotoGP Riders</h1>
+            <p class="lead">This is a complete list of all MotoGP riders for 2019</p>
+        </div>
+    </div>
+    <div id="csApp" class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-danger" type="button" id="button-addon2"
+                            v-on:click="clearSearch">Clear</button>
+                    </div> <input type="text" class="form-control" placeholder="Search..." v-model="searchTerm"
+                        v-on:keyup.enter="filterList">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-danger" type="button" id="button-addon2" v-on:click="filterList">
+                            Filter for {{searchTerm}}
+                        </button>
+                    </div>
+                </div>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rider</th>
+                            <th scope="col">Motorcycle</th>
+                            <th scope="col">Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="rider in riders">
+                            <td>{{rider.fields.Rider}}</td>
+                            <td>{{rider.fields.Motorcycle}}</td>
+                            <td>{{rider.fields.Number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
